@@ -4,13 +4,7 @@ import { TRPCReactProvider } from "@/trpc/react";
 import { Header } from "@/components/organisms/header/Header";
 import { Footer } from "@/components/organisms/footer/Footer";
 import { LikeJobProvider } from "@/states/LikeJobState";
-
-
-export const metadata = {
-  title: "個撮のライチ求人",
-  description: "説明文",
-  icons: [{ rel: "icon", url: "/favicon.png" }],
-};
+export { metadata } from "./metadata"
 
 const menu: { label: string; href: string }[] = [
   {
