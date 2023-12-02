@@ -34,7 +34,7 @@ const Card = ({
                     } />
 
                 </div>
-                : <Loading />}
+                : <></>}
         </li >
     )
 }

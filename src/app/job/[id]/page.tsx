@@ -48,7 +48,11 @@ const Page = ({ params: { id } }: { params: { id: string } }) => {
                             }}
                         />
                         <div className=''>
-                            {isLoading && <Loading />}
+                            {isLoading && <div className="flex justify-center m-10" aria-label="読み込み中">
+                                <div className="animate-ping h-2 w-2 bg-blue-600 rounded-full"></div>
+                                <div className="animate-ping h-2 w-2 bg-blue-600 rounded-full mx-4"></div>
+                                <div className="animate-ping h-2 w-2 bg-blue-600 rounded-full"></div>
+                            </div>}
                             <div className="w-full">
                                 <div className="">
                                     <div className="">
@@ -320,7 +324,12 @@ const Page = ({ params: { id } }: { params: { id: string } }) => {
                             </div>
                         </div>
                     </div>
-                    : <Loading />}
+                    :
+                    <div className="flex justify-center m-10" aria-label="読み込み中">
+                        <div className="animate-ping h-2 w-2 bg-blue-600 rounded-full"></div>
+                        <div className="animate-ping h-2 w-2 bg-blue-600 rounded-full mx-4"></div>
+                        <div className="animate-ping h-2 w-2 bg-blue-600 rounded-full"></div>
+                    </div>}
             </div >
         </>
     )
