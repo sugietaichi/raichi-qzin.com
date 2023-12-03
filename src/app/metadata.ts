@@ -7,6 +7,7 @@ const url = "https://raichi-qzin.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(url),
+  icons: [{ rel: "icon", url: "/favicon.png" }],
   title: {
     default: siteName,
     template: `%s - ${siteName}`,
