@@ -11,12 +11,32 @@ function Page() {
     const { jobIds } = useLikeJobs();
     return (
         <>
-            <Pankuzu paths={[
-                {
-                    text: "お気に入り",
-                    href: "/fav"
-                },
-            ]} />
+
+            <div className="flex justify-between items-center">
+                <div>
+                    <Pankuzu paths={[{ text: "お気に入り", href: "/fav" },]} />
+                </div>
+                <div className="flex">
+                    <div className="text-center mx-auto text-sm">
+                        お気に入り
+
+                        {jobIds?.length ?
+                            <>
+                                <span className=" text-lg text-gray-700">{jobIds.length}</span>
+                                /
+                                <span className=" text-lg text-gray-700">{jobIds.length}</span>
+                                件
+                            </>
+                            :
+                            <>
+                                <span className=" text-lg text-gray-700">{` ${jobIds ? jobIds.length : 0} `}</span>
+                                件
+                            </>
+                        }
+                    </div>
+                </div>
+            </div>
+
 
             <ul className='space-y-3'>
                 {jobIds ? jobIds.map((jobId: string) => (

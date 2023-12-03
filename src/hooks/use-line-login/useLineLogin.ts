@@ -31,15 +31,16 @@ const useLineLogin = (): {
         onSuccess: (data: { state: { value: string } }) => {
           const redirectUri = generateRedirectUrl(redirectUrl);
           const url = generateLoginUrl(clientId, data.state.value, redirectUri);
-          setIsLoginLoading(false)
+          alert(url);
           router.push(url);
+          setIsLoginLoading(false);
         },
         onError: (error: unknown) => {
           console.log("Error creating state:", error);
         },
       });
     } catch (e) {
-      console.log("error", e)
+      console.log("error", e);
     }
   };
 

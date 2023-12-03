@@ -15,13 +15,20 @@ function Home() {
     <div className="">
       <ResultModal />
       <SearchArea />
-      <Pankuzu paths={[
-        {
-          text: "案件一覧",
-          href: "/"
-        }
-      ]}
-      />
+      <div className="flex justify-between items-center">
+        <div>
+          <Pankuzu paths={[{ text: "案件一覧", href: "/" }]} />
+        </div>
+        <div className="flex">
+          <div className="text-center mx-auto text-sm">
+            検索結果
+            <span className=" text-lg text-gray-700">{` ${data ? data.length : 0} `}</span>
+            /
+            <span className=" text-lg text-gray-700">{` ${data ? data.length : 0} `}</span>
+            件
+          </div>
+        </div>
+      </div>
       <ul className='space-y-3'>
         {data ? data.map((job: Job) => (
           <div key={job.id} className="mb-10">
