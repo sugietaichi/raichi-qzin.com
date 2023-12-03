@@ -31,7 +31,6 @@ const useLineLogin = (): {
         onSuccess: (data: { state: { value: string } }) => {
           const redirectUri = generateRedirectUrl(redirectUrl);
           const url = generateLoginUrl(clientId, data.state.value, redirectUri);
-          alert(url);
           router.push(url);
           setIsLoginLoading(false);
         },

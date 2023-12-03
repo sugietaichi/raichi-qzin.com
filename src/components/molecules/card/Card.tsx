@@ -3,7 +3,6 @@
 import { Footer } from "./Footer"
 import { Header } from "./Header"
 import { api } from "@/trpc/react"
-import Loading from "../../atoms/loading/Loading"
 import { type Job } from "@/server/api/routers/job"
 import { CardBody } from "@/app/fav/_internal/CardBody"
 
@@ -34,7 +33,13 @@ const Card = ({
                     } />
 
                 </div>
-                : <></>}
+                :
+                <div className="flex justify-center m-10" aria-label="読み込み中">
+                    <div className="animate-ping h-2 w-2 bg-blue-600 rounded-full"></div>
+                    <div className="animate-ping h-2 w-2 bg-blue-600 rounded-full mx-4"></div>
+                    <div className="animate-ping h-2 w-2 bg-blue-600 rounded-full"></div>
+                </div>
+            }
         </li >
     )
 }

@@ -1,6 +1,5 @@
 "use client"
 
-import Loading from "@/components/atoms/loading/Loading";
 import Card from "@/components/molecules/card/Card";
 import { ResultModal } from "@/components/molecules/modal/Modal";
 import { Pankuzu } from "@/components/molecules/pankuzu/Pankuzu";
@@ -15,18 +14,27 @@ function Home() {
     <div className="">
       <ResultModal />
       <SearchArea />
-      <div className="flex justify-between items-center">
+      <div className="flex justify-between items-center m-1">
         <div>
           <Pankuzu paths={[{ text: "案件一覧", href: "/" }]} />
         </div>
-        <div className="flex">
+        <div className="flex flex-col">
           <div className="text-center mx-auto text-sm">
             検索結果
-            <span className=" text-lg text-gray-700">{` ${data ? data.length : 0} `}</span>
-            /
-            <span className=" text-lg text-gray-700">{` ${data ? data.length : 0} `}</span>
-            件
           </div>
+          {data?.length ?
+            <p>
+              <span className="te text-lg mx-auto text-gray-700">{data.length}</span>
+              /
+              <span className=" text-lg mx-auto text-gray-700">{data.length}</span>
+              件
+            </p>
+            :
+            <p>
+              <span className=" text-lg mx-auto text-gray-700">{` ${data ? data.length : 0} `}</span>
+              件
+            </p>
+          }
         </div>
       </div>
       <ul className='space-y-3'>

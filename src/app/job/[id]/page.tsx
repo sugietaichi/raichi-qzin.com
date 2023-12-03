@@ -1,7 +1,6 @@
 "use client"
 
 import { UserType } from "@/components/_internal/emus"
-import Loading from "@/components/atoms/loading/Loading"
 import { Pankuzu } from "@/components/molecules/pankuzu/Pankuzu"
 import { TableRow } from "@/components/molecules/table-raw/TableRow"
 import { Tags } from "@/components/organisms/tags/Tags"
@@ -14,8 +13,6 @@ import { Header } from "@/components/molecules/card/Header"
 import { useToggle } from "react-use"
 import { ButtonItem } from "@/components/atoms/button/ButtonItem"
 import { IconLine, IconBack } from "@/components/atoms/icons/icons"
-
-
 
 const Page = ({ params: { id } }: { params: { id: string } }) => {
     const { affiliatorId } = useAffiliatorId('a')

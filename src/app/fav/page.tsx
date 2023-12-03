@@ -16,20 +16,21 @@ function Page() {
                 <div>
                     <Pankuzu paths={[{ text: "お気に入り", href: "/fav" },]} />
                 </div>
-                <div className="flex">
+                <div className="flex flex-col">
                     <div className="text-center mx-auto text-sm">
-                        お気に入り
-
+                        <div className="text-center mx-auto text-sm">
+                            お気に入り
+                        </div>
                         {jobIds?.length ?
                             <>
-                                <span className=" text-lg text-gray-700">{jobIds.length}</span>
+                                <span className="te text-lg mx-auto text-gray-700">{jobIds.length}</span>
                                 /
-                                <span className=" text-lg text-gray-700">{jobIds.length}</span>
+                                <span className=" text-lg mx-auto text-gray-700">{jobIds.length}</span>
                                 件
                             </>
                             :
                             <>
-                                <span className=" text-lg text-gray-700">{` ${jobIds ? jobIds.length : 0} `}</span>
+                                <span className=" text-lg mx-auto text-gray-700">{` ${jobIds ? jobIds.length : 0} `}</span>
                                 件
                             </>
                         }
@@ -47,18 +48,22 @@ function Page() {
 
                 )) : <Loading />}
                 {!jobIds.length && (
-                    <div className="">
-                        <div className="inline">
-                            <p>お気に入りが0件です。</p>
-                            案件一覧は
-                            <Link href={"/"} className="underline inline-block">
-                                こちら
-                            </Link>
-                            {/* <span className="inline-block align-middle">
+                    <li className='bg-white rounded shadow-xl rounded-t-lg border-2 border-blue-500 mt-1'>
+                        <div className="m-5">
+                            <div className="inline space-y-2">
+                                <p>お気に入りが0件です。</p>
+                                <p>
+                                    案件一覧は
+                                    <Link href={"/"} className="underline inline-block">
+                                        こちら
+                                    </Link>
+                                </p>
+                                {/* <span className="inline-block align-middle">
                                 <IconHeart h="h-4" w="w-4" m="" />
                             </span> */}
+                            </div>
                         </div>
-                    </div>
+                    </li >
                 )}
             </ul>
         </>
