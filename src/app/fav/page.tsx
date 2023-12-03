@@ -16,25 +16,23 @@ function Page() {
                 <div>
                     <Pankuzu paths={[{ text: "お気に入り", href: "/fav" },]} />
                 </div>
-                <div className="flex flex-col">
+                <div className="flex flex-col items-end">
                     <div className="text-center mx-auto text-sm">
-                        <div className="text-center mx-auto text-sm">
-                            お気に入り
-                        </div>
-                        {jobIds?.length ?
-                            <>
-                                <span className="te text-lg mx-auto text-gray-700">{jobIds.length}</span>
-                                /
-                                <span className=" text-lg mx-auto text-gray-700">{jobIds.length}</span>
-                                件
-                            </>
-                            :
-                            <>
-                                <span className=" text-lg mx-auto text-gray-700">{` ${jobIds ? jobIds.length : 0} `}</span>
-                                件
-                            </>
-                        }
+                        お気に入り
                     </div>
+                    {jobIds?.length ?
+                        <p className="text-right">
+                            <span className="text-lg text-gray-700">{jobIds.length}</span>
+                            /
+                            <span className="text-lg text-gray-700">{jobIds.length}</span>
+                            件
+                        </p>
+                        :
+                        <p className="text-right">
+                            <span className="text-lg text-gray-700">{0}</span>
+                            件
+                        </p>
+                    }
                 </div>
             </div>
 
