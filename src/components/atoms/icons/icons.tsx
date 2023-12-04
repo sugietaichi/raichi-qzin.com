@@ -35,9 +35,9 @@ export const IconHeart = ({
 }: {
     stroke?: "red" | "white" | "black"
     fill?: "red" | "white"
-    w?: "w-10" | "w-6" | "w-4"
-    h?: "h-10" | "h-6" | "h-4"
-    m?: "m-3" | ""
+    w?: "w-10" | "w-6" | "w-4" | "w-11" | "w-8"
+    h?: "h-10" | "h-6" | "h-4" | "h-11" | "h-8"
+    m?: "m-3" | "" | "m-1"
 }) => {
     return (
         <svg

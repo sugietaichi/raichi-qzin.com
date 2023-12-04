@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import { Logo } from '../../atoms/logo/logo'
 import { useToggle } from 'react-use'
-import { HeaderFav } from '../../molecules/header-fav/HeaderFav'
+import { FavCount } from '@/components/molecules/fav-count/FavCount'
 
 type Props = {
     menuList: {
@@ -29,7 +29,7 @@ export const Header = (props: Props) => {
                 <ul
                     className={
                         isOpen
-                            ? 'flex h-screen justify-center items-center flex-col gap-6 text-xl'
+                            ? 'flex h-screen justify-center items-center flex-col gap-6 text-xl pb-[50vh]'
                             : 'block'
                     }
                 >
@@ -48,28 +48,28 @@ export const Header = (props: Props) => {
             </nav>
 
             <div className="flex items-center h-full">
-                <HeaderFav />
+                <FavCount />
                 <div className='flex items-center h-full mx-2'>
                     <button className='z-50 space-y-2' onClick={changeOpen}>
                         <span
                             className={
                                 isOpen
-                                    ? 'block w-8 h-0.5 bg-gray-600 translate-y-2.5 rotate-45 duration-300'
-                                    : 'block w-8 h-0.5 bg-gray-600 duration-300'
+                                    ? 'block w-8 h-0.5 bg-white translate-y-2.5 rotate-45 duration-300'
+                                    : 'block w-8 h-0.5 bg-white duration-300'
                             }
                         />
                         <span
                             className={
                                 isOpen
                                     ? 'block opacity-0 duration-300'
-                                    : 'block w-8 h-0.5 bg-gray-600 duration-300'
+                                    : 'block w-8 h-0.5 bg-white duration-300'
                             }
                         />
                         <span
                             className={
                                 isOpen
-                                    ? 'block w-8 h-0.5 bg-gray-600 -rotate-45 duration-300'
-                                    : 'block w-8 h-0.5 bg-gray-600 duration-300'
+                                    ? 'block w-8 h-0.5 bg-white -rotate-45 duration-300'
+                                    : 'block w-8 h-0.5 bg-white duration-300'
                             }
                         />
                     </button>

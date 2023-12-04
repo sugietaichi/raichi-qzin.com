@@ -25,7 +25,7 @@ export default function RootLayout({
   return (
     <html lang='ja' prefix='og: http://ogp.me/ns#'>
       <TRPCReactProvider cookies={cookies().toString()}>
-        <body className={`flex flex-col items-center justify-center bg-pink-200 ont-sans`}>
+        <body className={`flex flex-col items-center justify-center bg-pink-300 ont-sans`}>
           <LikeJobProvider>
             <Header menuList={[...menu]} />
             <main className='w-full max-w-xl mt-3'>

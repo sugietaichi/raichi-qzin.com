@@ -19,17 +19,23 @@ export const HeaderFav = () => {
             <button
                 type="button"
                 onClick={() => router.push("/fav")}
-                className="flex items-center px-2 py-2 text-sm font-medium text-center text-white bg-pink-300 rounded-lg"
+                className="flex flex-col items-center px-2 py-2 text-sm font-medium text-center text-white bg-white rounded-lg"
             >
-                <IconHeart
-                    stroke={'white'} fill={'red'} h={'h-6'} w={'w-6'} m={""}
-                />
-                <span
-                    className="flex items-center justify-center w-4 h-4 ms-2 text-xs font-semibold text-blue-800 bg-blue-200 rounded-full"
-                >
-                    {likedCount}
-                </span>
+                <div className="flex items-center">
+                    <IconHeart
+                        stroke={'white'} fill={'red'} h={'h-6'} w={'w-6'} m={""}
+                    />
+                    <span
+                        className="flex items-center justify-center w-4 h-4 text-xs font-semibold text-blue-800 bg-blue-200 rounded-full"
+                    >
+                        {likedCount}
+                    </span>
+                </div>
+                <div className="text-red-500">
+                    キープ
+                </div>
             </button>
         </div>
+
     )
 }

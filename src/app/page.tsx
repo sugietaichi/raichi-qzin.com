@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import Card from "@/components/molecules/card/Card";
 import { ResultModal } from "@/components/molecules/modal/Modal";
 import { Pankuzu } from "@/components/molecules/pankuzu/Pankuzu";
@@ -14,6 +15,7 @@ function Home() {
     <div className="">
       <ResultModal />
       <SearchArea />
+      <Image className="w-full p-1" src="/top_banner.png" alt={""} width={200} height={200} />
       <div className="flex justify-between items-center m-1">
         <div>
           <Pankuzu paths={[{ text: "案件一覧", href: "/" }]} />

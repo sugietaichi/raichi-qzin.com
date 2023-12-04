@@ -17,23 +17,21 @@ export const Header = ({
                 <h5 className="text-xl font-bold leading-none text-white p-2 m-2">{title}</h5>
             </div>
             <div className="flex items-center mx-2">
-                {
-                    isLiked(jobId)
-                        ?
-                        <div onClick={() => unlike(jobId)}>
-                            <IconHeart {...{
-                                stroke: "white",
-                                fill: "red"
-                            }} />
-                        </div>
-
-                        :
-                        <div onClick={() => like(jobId)}>
-                            <IconHeart {...{
-                                stroke: "red",
-                                fill: "white"
-                            }} />
-                        </div>
+                {isLiked(jobId)
+                    ?
+                    <div onClick={() => unlike(jobId)}>
+                        <IconHeart {...{
+                            stroke: "white",
+                            fill: "red"
+                        }} />
+                    </div>
+                    :
+                    <div onClick={() => like(jobId)}>
+                        <IconHeart {...{
+                            stroke: "red",
+                            fill: "white"
+                        }} />
+                    </div>
                 }
             </div>
         </div >
