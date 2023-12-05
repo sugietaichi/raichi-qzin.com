@@ -1,7 +1,6 @@
+import { PrimaryButton } from "@/components/atoms/button/Primary"
+import { Select } from "@/components/atoms/select/Select"
 import { prefecture, searchAttr } from "@/libs/search-options/searchOptions"
-import { PrimaryButton } from "../atoms/button/Primary"
-import { Select } from "../atoms/select/Select"
-
 
 export const SearchArea = (): JSX.Element => {
     return (

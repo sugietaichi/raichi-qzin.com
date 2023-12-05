@@ -6,11 +6,12 @@ import { type Job } from "@/server/api/routers/job";
 import { useState, useRef, useEffect } from "react";
 import { Tags } from "@/components/molecules/tags/Tags";
 
-export const CardBody = ({
-    id: jobId,
-    job,
-    // children
-}: Job) => {
+export const JobCardBody = ({
+    data
+}: {
+    data: Job
+}) => {
+    const { id, job } = data
     const [toggleAccordion, setToggleAccordion] = useState(false);
     const [contentHeight, setContentHeight] = useState<number>(0);
     const contentRef = useRef<HTMLDivElement>(null);
@@ -29,18 +30,6 @@ export const CardBody = ({
 
     return (
         <>
-            <div className="px-3">
-                <Link href={`/job/${jobId}`}>
-                    <Image
-                        className='rounded-t-lg border border-black '
-                        src={job.imageUrl || '/noimage.png'}
-                        alt=''
-                        width={1000}
-                        height={430}
-                    >
-                    </Image>
-                </Link>
-            </div>
             <Tags tags={job.tags} />
             <div className="p-2">
                 <h5 className='m-2 text-2xl font-bold tracking-tight text-gray-900'>
@@ -126,6 +115,9 @@ export const CardBody = ({
                     </button>
                 </div>
             </div >
+
+
+            <JobDetails details={jobDetails} />
 
 
 

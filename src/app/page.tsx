@@ -4,9 +4,10 @@ import Image from "next/image"
 import Card from "@/components/molecules/card/Card";
 import { ResultModal } from "@/components/molecules/modal/Modal";
 import { Pankuzu } from "@/components/molecules/pankuzu/Pankuzu";
-import { SearchArea } from "@/components/search-area/searchArea";
 import { type Job } from "@/server/api/routers/job";
 import { api } from "@/trpc/react";
+import { SearchArea } from "@/components/molecules/search-area/searchArea";
+import { JobCard } from "@/components/organisms/job-card/JobCard";
 
 function Home() {
   const { data } = api.job.getAll.useQuery();
@@ -46,7 +47,8 @@ function Home() {
       <ul className='space-y-3'>
         {data ? data.map((job: Job) => (
           <div key={job.id} className="mb-10">
-            <Card {...{ jobId: job.id }} />
+            {/* <Card {...{ jobId: job.id }} /> */}
+            <JobCard {...{ data: job }} />
           </div>
         ))
           :

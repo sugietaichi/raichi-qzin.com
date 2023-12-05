@@ -3,7 +3,6 @@
 import { UserType } from "@/components/_internal/emus"
 import { Pankuzu } from "@/components/molecules/pankuzu/Pankuzu"
 import { TableRow } from "@/components/molecules/table-raw/TableRow"
-import { Tags } from "@/components/organisms/tags/Tags"
 import useLineLogin from "@/hooks/use-line-login/useLineLogin"
 import useAffiliatorId from "@/hooks/useAffiliatorId"
 import { api } from "@/trpc/react"
@@ -13,6 +12,7 @@ import { Header } from "@/components/molecules/card/Header"
 import { useToggle } from "react-use"
 import { ButtonItem } from "@/components/atoms/button/ButtonItem"
 import { IconLine, IconBack } from "@/components/atoms/icons/icons"
+import { Tags } from "@/components/molecules/tags/Tags"
 
 const Page = ({ params: { id } }: { params: { id: string } }) => {
     const { affiliatorId } = useAffiliatorId('a')
