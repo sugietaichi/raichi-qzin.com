@@ -13,10 +13,15 @@ function Home() {
 
   return (
     <div className="">
-      <div className='bg-gray-400 w-full text-white text-center px-2 mb-2'>
+      <div className="flex justify-between items-center mx-1 mb-2">
+        <div className="">
+          <Pankuzu paths={[{ text: "案件一覧", href: "/" }]} />
+        </div>
+      </div>
+      <div className='bg-gray-400 w-full text-white text-center mb-2'>
         高額モデル求人情報サイト
       </div>
-      <Image className="w-full px-1 pb-2 " src="/bana.png" alt={""} width={200} height={200} />
+      <Image className="w-full pb-2 " src="/bana.png" alt={""} width={200} height={200} />
       <ResultModal />
       <div className="flex flex-col items-end">
         <div className="text-right text-sm">
@@ -38,11 +43,6 @@ function Home() {
       </div>
       <SearchArea />
       <Image className="w-full py-1" src="/top_banner.png" alt={""} width={200} height={200} />
-      <div className="flex justify-between items-center m-1">
-        <div className="pt-3">
-          <Pankuzu paths={[{ text: "案件一覧", href: "/" }]} />
-        </div>
-      </div>
       <ul className='space-y-3'>
         {data ? data.map((job: Job) => (
           <div key={job.id} className="mb-10">

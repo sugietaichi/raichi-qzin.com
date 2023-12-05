@@ -28,7 +28,7 @@ export default function RootLayout({
         <body className={`flex flex-col items-center justify-center bg-pink-300 ont-sans`}>
           <LikeJobProvider>
             <Header menuList={[...menu]} />
-            <main className='w-full max-w-xl mt-3'>
+            <main className='w-full max-w-xl mt-2'>
               <div className='w-full px-2 py-3 bg-gray-200 shadow-md rounded-lg'>
                 {children}
               </div>

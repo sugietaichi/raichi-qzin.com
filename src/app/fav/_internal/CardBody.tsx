@@ -4,12 +4,29 @@ import Link from "next/link"
 import Image from "next/image"
 import { type Job } from "@/server/api/routers/job";
 import { Tags } from "@/components/organisms/tags/Tags";
+import { useState, useRef, useEffect } from "react";
 
 export const CardBody = ({
     id: jobId,
     job,
     // children
 }: Job) => {
+    const [toggleAccordion, setToggleAccordion] = useState(false);
+    const [contentHeight, setContentHeight] = useState<number>(0);
+    const contentRef = useRef<HTMLDivElement>(null);
+
+    // useEffectの依存配列を修正
+    useEffect(() => {
+        if (contentRef.current) {
+            setContentHeight(contentRef.current.scrollHeight);
+        }
+    }, [toggleAccordion]); // 依存配列をtoggleAccordionに変更
+
+    // onToggleAccordion関数を修正
+    const onToggleAccordion = () => setToggleAccordion(!toggleAccordion);
+
+
+
     return (
         <>
             <div className="px-3">
@@ -30,7 +47,6 @@ export const CardBody = ({
                     {job.title}
                 </h5>
             </div>
-            {/* <div className='text-gray-600 p-2'>{job.subtitle}</div> */}
 
             <div className="border-orange-500 border rounded shadow-xl m-2 mb-5 p-2 pt-5 mt-5 relative" >
                 <div className="absolute top-[-1rem] left-2 px-2 bg-orange-200">要件内容</div>
@@ -91,12 +107,29 @@ export const CardBody = ({
                         </div>
                     </div>
                 </div>
-            </div>
 
-            {/* <div className="border-gray-400 border rounded shadow-xl m-2 p-4" >
-                                        <div>【秘密で稼ぎたい女性専門】充実した待遇のもと高収入を狙えるプロダクション美容への後押しとなる盛り沢山の福利厚生をぜひチェック！
-                                            『LIGHT promotion』は、少ない稼働でも効率よく高収入を目指せる仕組みなのだとか。マスクを着用したりサングラスを着用したりして出演することも可能だそうで、身バレの心配を抑えることができそうです。また、こちらの会社は美容への後押しとなるサポート待遇も盛り沢山なのだとか。様々な福利厚生が設けられているとのことで、美しさを高めることも可能なのだそうですよ♪少しでもグッと来た方はぜひチェック！＜編集部＞</div>
-                                    </div> */}
+                <div
+                    ref={contentRef}
+                    style={{
+                        maxHeight: toggleAccordion ? `${contentHeight}px` : '0',
+                        overflow: 'hidden',
+                        transition: 'max-height 0.7s ease-in-out'
+                    }}
+                >
+                    <div className="h-40 bg-red-500">aaaa</div>
+                    <div className="h-40 bg-red-500">aaaa</div>
+                    <div className="h-40 bg-red-500">aaaa</div>
+                    <div className="h-40 bg-red-500">aaaa</div>
+                    <div className="h-40 bg-red-500">aaaa</div>
+                    <div className="h-40 bg-red-500">aaaa</div>
+                    <div className="h-40 bg-red-500">aaaa</div>
+                </div>
+
+                {/* ... トグル部分 ... */}
+                <button onClick={onToggleAccordion} className="px-4 py-2 z-10">
+                    {toggleAccordion ? '閉じる' : 'もっと見る'}
+                </button>
+            </div >
 
             <div className="pt-5">
                 <div className="border-gray-400 border rounded shadow-xl m-2 p-5 relative">
