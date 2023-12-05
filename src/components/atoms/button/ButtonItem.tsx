@@ -36,7 +36,7 @@ export const ButtonItem = (
         <button
             type="button"
             disabled={loading}
-            className={`flex justify-between items-center px-5 text-sm font-medium border border-gray-900 ${h} ${round} ${bgColor} ${textColor} ${flex}`}
+            className={`mx-1 flex justify-between items-center px-5 text-sm font-medium border border-gray-900 ${h} ${round} ${bgColor} ${textColor} ${flex}`}
             onClick={onClick}
         >
             {loading ? (

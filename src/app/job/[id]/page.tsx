@@ -264,7 +264,7 @@ const Page = ({ params: { id } }: { params: { id: string } }) => {
                                             textColor="text-black"
                                             flex="flex-1"
                                             text="読み込み中です"
-                                            barColor="red"
+                                            barColor="black"
                                             h="h-20"
                                         />
                                         :
@@ -276,7 +276,6 @@ const Page = ({ params: { id } }: { params: { id: string } }) => {
                                             round="rounded-s-lg"
                                             bgColor="bg-gray-100"
                                             textColor="text-black"
-                                            barColor="black"
                                             flex="flex-1"
                                             text="戻る"
                                             h="h-20"

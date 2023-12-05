@@ -14,9 +14,9 @@ function Home() {
   return (
     <div className="">
       <div className='bg-gray-400 w-full text-white text-center px-2 mb-2'>
-        関東エリア 個撮求人情報サイト
+        高額モデル求人情報サイト
       </div>
-      <Image className="w-full px-1 pb-2" src="/bana.png" alt={""} width={200} height={200} />
+      <Image className="w-full px-1 pb-2 " src="/bana.png" alt={""} width={200} height={200} />
       <ResultModal />
       <div className="flex flex-col items-end">
         <div className="text-right text-sm">
@@ -37,7 +37,7 @@ function Home() {
         }
       </div>
       <SearchArea />
-      <Image className="w-full px-1" src="/top_banner.png" alt={""} width={200} height={200} />
+      <Image className="w-full py-1" src="/top_banner.png" alt={""} width={200} height={200} />
       <div className="flex justify-between items-center m-1">
         <div className="pt-3">
           <Pankuzu paths={[{ text: "案件一覧", href: "/" }]} />
