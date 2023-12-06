@@ -117,7 +117,7 @@ export const JobCardBody = ({
             </div >
 
 
-            <JobDetails details={jobDetails} />
+            {/* <JobDetails details={jobDetails} /> */}
 
 
 

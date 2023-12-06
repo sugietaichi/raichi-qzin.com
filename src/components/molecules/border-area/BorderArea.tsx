@@ -1,10 +1,12 @@
-import { ReactNode } from "react"
+import { JobDetailItemInfo } from "@/components/organisms/job-card/JobDetailItemInfo"
+import { ReactNode, useEffect, useRef, useState } from "react"
+import { useToggle } from "react-use"
 
 export const BorderArea = ({
     title,
     children
 }: {
-    title: string
+    title: string,
     children: ReactNode
 }) => {
     return (
@@ -12,5 +14,6 @@ export const BorderArea = ({
             <div className="absolute top-[-1rem] left-2 px-2 bg-gray-200 border border-gray-400">{title}</div>
             {children}
         </div>
+
     )
 }

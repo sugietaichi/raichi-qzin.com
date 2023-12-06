@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { JobDetailItemInfo } from "./JobDetailItemInfo";
-import { DetailInfo } from "./JobCard";
 import { useToggle } from "react-use";
 import { BorderArea } from "@/components/molecules/border-area/BorderArea";
+import { DetailInfo } from "./JobCard";
 
 
 export const JobCardDetails = ({
@@ -15,12 +15,9 @@ export const JobCardDetails = ({
     const exposes = details.get("expose")
     const hides = details.get("hide")
 
-    // const [toggleAccordion, setToggleAccordion] = useState(false);
     const [showAccordion, changeShowAccordion] = useToggle(false)
     const [contentHeight, setContentHeight] = useState<number>(0);
     const contentRef = useRef<HTMLDivElement>(null);
-
-    // const onToggleAccordion = () => setToggleAccordion(!toggleAccordion);
 
     useEffect(() => {
         if (contentRef.current) {
@@ -30,9 +27,8 @@ export const JobCardDetails = ({
 
     return (
         <BorderArea title={text}>
-
             {exposes?.map(detail => (
-                <JobDetailItemInfo key={detail.title} {...detail} />
+                <JobDetailItemInfo key={detail.text} {...detail} />
             ))}
 
             <div
@@ -44,7 +40,7 @@ export const JobCardDetails = ({
                 }}
             >
                 {hides?.map(detail => (
-                    <JobDetailItemInfo key={detail.title} {...detail} />
+                    <JobDetailItemInfo key={detail.text} {...detail} />
                 ))}
             </div>
 
@@ -54,6 +50,5 @@ export const JobCardDetails = ({
                 </button>
             </div>
         </BorderArea>
-
     )
 }

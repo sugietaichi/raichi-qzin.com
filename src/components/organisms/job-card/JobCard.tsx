@@ -5,6 +5,7 @@ import { JobCardTemplate as Template } from "./JobCardTmplate";
 import { JobCardBody as Body } from "./JobCardBody";
 import { JobCardDetails } from "./JobCardDetails";
 import { ReactNode } from "react";
+import { JobCardSchedule } from "./JobCardSchedule";
 
 const IconLocation = (
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
@@ -15,7 +16,7 @@ const IconLocation = (
 
 export type DetailInfo = {
     icon: ReactNode,
-    title: string,
+    text: string,
     description: string
 }
 
@@ -23,28 +24,63 @@ const details = new Map<"expose" | "hide", DetailInfo[]>([
     ["expose", [
         {
             icon: IconLocation,
-            title: "撮影場所",
+            text: "撮影場所",
             description: "東京都新宿区"
         },
         {
             icon: IconLocation,
-            title: "撮影場所",
+            text: "撮影場所",
             description: "東京都新宿区"
         },
     ]],
     ["hide", [
         {
             icon: IconLocation,
-            title: "拘束時間",
+            text: "拘束時間",
             description: "最大6時間"
         },
         {
             icon: IconLocation,
-            title: "拘束時間",
+            text: "拘束時間",
             description: "最大6時間"
         },
     ]]
 ]);
+
+const schedule = new Map<"expose" | "hide", DetailInfo[]>([
+    ["expose", [
+        {
+            icon: IconLocation,
+            text: "撮影場所",
+            description: "東京都新宿区"
+        },
+        {
+            icon: IconLocation,
+            text: "撮影場所",
+            description: "東京都新宿区"
+        },
+    ]],
+    ["hide", [
+        {
+            icon: IconLocation,
+            text: "拘束時間",
+            description: "最大6時間"
+        },
+        {
+            icon: IconLocation,
+            text: "拘束時間",
+            description: "最大6時間"
+        },
+    ]]
+]);
+
+export type ScheduleInfo = {
+    icon: ReactNode,
+    text: string,
+    description: string
+}
+
+
 
 export const JobCard = ({ data }: { data: Job }) => {
     const { job, id } = data
@@ -55,10 +91,15 @@ export const JobCard = ({ data }: { data: Job }) => {
                 src: job.imageUrl,
                 href: `/job/${id}`
             }} />
-            {/* <Body {...{ data }} /> */}
+
             <JobCardDetails {...{
                 details,
                 text: "案件詳細"
+            }} />
+
+            <JobCardSchedule {...{
+                schedule,
+                text: "撮影当日の流れ"
             }} />
         </Template>
     )
