@@ -1,4 +1,4 @@
-export const JobScheduleInfo = ({ isEnd }: { isEnd?: boolean }) => {
+export const JobScheduleInfo = () => {
     return (
         <>
             <div className="mb-10 ms-6">
