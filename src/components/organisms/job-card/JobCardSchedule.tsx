@@ -1,6 +1,4 @@
 import { ReactNode, useEffect, useRef, useState } from "react";
-import { JobDetailItemInfo } from "./JobDetailItemInfo";
-import { DetailInfo, ScheduleInfo } from "./JobCard";
 import { useToggle } from "react-use";
 import { BorderArea } from "@/components/molecules/border-area/BorderArea";
 import { JobScheduleInfo } from "./JobScheduleInfo";
@@ -20,45 +18,34 @@ export const JobCardSchedule = ({
     const hides = schedule.get("hide")
 
     // 初期状態を true に設定
-    const [showAccordion, changeShowAccordion] = useToggle(true)
-    const [contentHeight, setContentHeight] = useState<number>(0);
-    const contentRef = useRef<HTMLDivElement>(null);
-
-    useEffect(() => {
-        if (contentRef.current) {
-            setContentHeight(contentRef.current.scrollHeight);
-        }
-    }, [showAccordion]);
+    const [showAccordion, changeShowAccordion] = useToggle(false)
 
     return (
         <BorderArea title={text}>
-            {/* 「expose」の部分を常に表示 */}
-            <ol className="relative border-s border-gray-200 m-5">
-                {exposes?.map((schedule, index) => (
-                    <JobScheduleInfo
-                        key={index}
-                        {...schedule}
-                    />
-                ))}
-            </ol>
-
-            {/* アコーディオン部分 */}
-            <div
-                ref={contentRef}
-                style={{
-                    maxHeight: showAccordion ? `${contentHeight}px` : '0',
-                    overflow: 'hidden',
-                    transition: 'max-height 0.7s ease-in-out'
-                }}
-            >
-                <ol className="relative border-s border-gray-200 m-5">
-                    {hides?.map((schedule, index) => (
-                        <JobScheduleInfo
-                            key={index}
-                            {...schedule}
-                        />
+            <div className="border-s border-blue-700 m-5">
+                <ol className="relative">
+                    {exposes?.map((schedule, index) => (
+                        <li className="mb-10 ms-6">
+                            <JobScheduleInfo
+                                key={index}
+                                {...schedule}
+                            />
+                        </li>
                     ))}
+
+                    <div
+                        className={`transition-all duration-1000 ease-in-out relative 
+                            ${showAccordion ? 'max-h-[500px] opacity-100 visible' : 'max-h-0 opacity-0 invisible'}`
+                        }
+                    >
+                        {hides?.map((schedule, index) => (
+                            <li className="mb-10 ms-6">
+                                <JobScheduleInfo key={index} {...schedule} />
+                            </li>
+                        ))}
+                    </div>
                 </ol>
+
             </div>
 
             <div className="flex justify-end">

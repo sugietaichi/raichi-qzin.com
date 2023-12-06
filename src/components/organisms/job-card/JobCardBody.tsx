@@ -116,11 +116,6 @@ export const JobCardBody = ({
                 </div>
             </div >
 
-
-            {/* <JobDetails details={jobDetails} /> */}
-
-
-
             <div className="pt-5">
                 <div className="border-gray-400 border rounded shadow-xl m-2 p-5 relative">
                     <div className="absolute top-[-1rem] left-2 px-2 bg-gray-200">紹介文</div>
