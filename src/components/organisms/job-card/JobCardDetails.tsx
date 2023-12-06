@@ -87,6 +87,7 @@ export const JobCardDetails = ({
                     <JobDetailItemInfo key={i} {...detail} />
                 ))}
             </div>
+
             <div className="flex justify-end">
                 <button onClick={changeShowAccordion} className="px-4 py-2 z-10 text-sm text-blue-500">
                     {showAccordion ? '閉じる' : 'もっと見る'}

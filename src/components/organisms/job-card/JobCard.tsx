@@ -1,11 +1,11 @@
 import { type Job } from "@/server/api/routers/job";
 import { JobCardTopImage as Image } from "./JobCardTopImage"
 import { JobCardHeader as Header } from "./JobCardHeader";
-import { JobCardTemplate as Template } from "./JobCardTmplate";
 import { JobCardBody as Body } from "./JobCardBody";
 import { JobCardDetails } from "./JobCardDetails";
 import { ReactNode } from "react";
 import { JobCardSchedule } from "./JobCardSchedule";
+import { JobCardTemplate } from "./JobCardTmplate";
 
 const IconLocation = (
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
@@ -85,7 +85,7 @@ export type ScheduleInfo = {
 export const JobCard = ({ data }: { data: Job }) => {
     const { job, id } = data
     return (
-        <Template>
+        <JobCardTemplate>
             <Header {...{ data }} />
             <Image {...{
                 src: job.imageUrl,
@@ -97,10 +97,7 @@ export const JobCard = ({ data }: { data: Job }) => {
                 text: "案件詳細"
             }} />
 
-            <JobCardSchedule {...{
-                schedule,
-                text: "撮影当日の流れ"
-            }} />
-        </Template>
+            <JobCardSchedule schedule={schedule} text={"aa"} />
+        </JobCardTemplate>
     )
 }
