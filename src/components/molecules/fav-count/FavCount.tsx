@@ -15,7 +15,13 @@ export const FavCount = () => {
     }, [jobIds.length])
 
     return (
-        <button type="button" className="relative inline-flex items-center text-sm font-medium text-center text-white bg-white rounded-lg px-2 mr-2">
+        <button
+            type="button"
+            className="relative inline-flex items-center text-sm font-medium text-center text-white bg-white rounded-lg px-2 mr-2"
+            onClick={() => {
+                router.push("/fav")
+            }}
+        >
             <div className="flex flex-col items-center pt-1">
                 <IconHeart {...{
                     stroke: "white",

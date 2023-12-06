@@ -1,7 +1,6 @@
 "use client"
 
 import Image from "next/image"
-import Card from "@/components/molecules/card/Card";
 import { ResultModal } from "@/components/molecules/modal/Modal";
 import { Pankuzu } from "@/components/molecules/pankuzu/Pankuzu";
 import { type Job } from "@/server/api/routers/job";

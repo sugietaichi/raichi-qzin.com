@@ -1,4 +1,4 @@
-import { ReactNode, useEffect, useRef, useState } from "react";
+import { type ReactNode } from "react";
 import { useToggle } from "react-use";
 import { BorderArea } from "@/components/molecules/border-area/BorderArea";
 import { JobScheduleInfo } from "./JobScheduleInfo";
@@ -16,8 +16,6 @@ export const JobCardSchedule = ({
 }) => {
     const exposes = schedule.get("expose")
     const hides = schedule.get("hide")
-
-    // 初期状態を true に設定
     const [showAccordion, changeShowAccordion] = useToggle(false)
 
     return (
@@ -45,7 +43,6 @@ export const JobCardSchedule = ({
                         ))}
                     </div>
                 </ol>
-
             </div>
 
             <div className="flex justify-end">

@@ -3,7 +3,6 @@ import useLikeJobs from "@/hooks/useLikeJobs";
 
 export const JobCardLikeButton = ({ id }: { id: string }) => {
     const { like, unlike, isLiked } = useLikeJobs()
-    const handler = () => isLiked(id) ? unlike : like
     const sIcon: {
         stroke: "red" | "white";
         fill: "red" | "white";
@@ -12,7 +11,7 @@ export const JobCardLikeButton = ({ id }: { id: string }) => {
             : { stroke: "red", fill: "white" }
 
     return (
-        <div onClick={handler}>
+        <div onClick={() => isLiked(id) ? unlike(id) : like(id)}>
             <IconHeart {...sIcon} />
         </div>
     )

@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react"
+import React, { type ReactNode } from "react"
 
 export const JobCardTemplate = ({
     children

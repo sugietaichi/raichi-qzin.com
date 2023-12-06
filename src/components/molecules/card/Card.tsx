@@ -31,7 +31,6 @@ const Card = ({
                     <Footer {
                         ...{ jobId }
                     } />
-
                 </div>
                 :
                 <div className="flex justify-center m-10" aria-label="読み込み中">
