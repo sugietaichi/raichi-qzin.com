@@ -1,7 +1,5 @@
 "use client"
 
-import Link from "next/link"
-import Image from "next/image"
 import { type Job } from "@/server/api/routers/job";
 import { useState, useRef, useEffect } from "react";
 import { Tags } from "@/components/molecules/tags/Tags";
@@ -11,7 +9,7 @@ export const JobCardBody = ({
 }: {
     data: Job
 }) => {
-    const { id, job } = data
+    const { job } = data
     const [toggleAccordion, setToggleAccordion] = useState(false);
     const [contentHeight, setContentHeight] = useState<number>(0);
     const contentRef = useRef<HTMLDivElement>(null);

@@ -1,26 +1,36 @@
-import { JobDetailItemInfo } from "./JobDetailItemInfo";
-import { useToggle } from "react-use";
-import { BorderArea } from "@/components/molecules/border-area/BorderArea";
-import { type DetailInfo } from "./JobCard";
+import { BorderArea } from "@/components/molecules/border-area/BorderArea"
+import { useToggle } from "react-use"
+import { JobDetailItemInfo } from "../job-card/JobDetailItemInfo"
+import { DetailInfo } from "./JobDetailCard"
+import { DetailCardCommentInfo } from "./JobDetailCardCommentInfo"
+
+export type CommentType = {
+    name?: string
+    shootingDate?: string
+    avatar?: React.ReactNode
+    rating?: 0 | 1 | 2 | 3 | 4 | 5
+    comment?: string
+    title?: string
+}
 
 
-export const JobCardDetails = ({
-    details,
+export const JobDetailCardComment = ({
+    comments,
     text,
     initOpen = false
 }: {
-    details: Map<"expose" | "hide", DetailInfo[]>
+    comments: Map<"expose" | "hide", CommentType[]>
     text: string
     initOpen?: boolean
 }) => {
-    const exposes = details.get("expose")
-    const hides = details.get("hide")
+    const exposes = comments.get("expose")
+    const hides = comments.get("hide")
     const [showAccordion, changeShowAccordion] = useToggle(initOpen)
 
     return (
         <BorderArea title={text}>
             {exposes?.map((detail, i) => (
-                <JobDetailItemInfo key={i} {...detail} />
+                <DetailCardCommentInfo key={i} />
             ))}
 
             <div
@@ -28,7 +38,7 @@ export const JobCardDetails = ({
                             ${showAccordion ? 'max-h-[500px] opacity-100 visible' : 'max-h-0 opacity-0 invisible'}`}
             >
                 {hides?.map((detail, i) => (
-                    <JobDetailItemInfo key={i} {...detail} />
+                    <DetailCardCommentInfo key={i} {...detail} />
                 ))}
             </div>
 

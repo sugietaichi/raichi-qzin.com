@@ -32,9 +32,6 @@ const IconMoney = (
     </svg>
 )
 
-
-
-
 export type DetailInfo = {
     icon: ReactNode,
     text: string,
@@ -72,38 +69,35 @@ const schedule = new Map<"expose" | "hide", ScheduleInfo[]>([
 
     ["expose", [
         {
-            icon: IconLocation,
-            text: "撮影場所",
-            description: "東京都新宿区"
+            step: 1,
+            text: "デートシーン撮影",
+            hour: 1,
+            description: "撮影監督との合流後、最寄りのゲームセンター・カフェなどでデートシーンの撮影をします。"
         },
         {
-            icon: IconLocation,
-            text: "撮影場所",
-            description: "東京都新宿区"
+            step: 2,
+            text: "事前説明",
+            hour: 1,
+            description: "撮影現場(最寄りのホテルorスタジオ)に到着後、条件のご確認と撮影に関する事前説明を行います。"
         },
     ]],
 
     ["hide", [
         {
-            icon: IconLocation,
-            text: "拘束時間",
-            description: "最大6時間"
-        },
-        {
-            icon: IconLocation,
-            text: "拘束時間",
-            description: "最大6時間"
+            step: 3,
+            text: "絡み×2回",
+            hour: 3,
+            description: "休憩を入れながら絡みシーンの撮影を2回行います。"
         },
     ]]
 ]);
 
 export type ScheduleInfo = {
-    icon: ReactNode,
+    step: number,
     text: string,
+    hour: number,
     description: string
 }
-
-
 
 export const JobCard = ({ data }: { data: Job }) => {
     const { job, id } = data
@@ -114,7 +108,8 @@ export const JobCard = ({ data }: { data: Job }) => {
 
             <Image {...{
                 src: job.imageUrl,
-                href: `/job/${id}`
+                href: `/job/${id}`,
+                alt: "",
             }} />
 
             <JobCardDetails {...{
@@ -124,7 +119,7 @@ export const JobCard = ({ data }: { data: Job }) => {
 
             <JobCardSchedule {...{
                 schedule,
-                text: "当日の流れ"
+                text: "仕事内容"
             }} />
 
             <Footer {...{

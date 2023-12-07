@@ -8,10 +8,11 @@ export const ButtonItem = (
         textColor = "text-black",
         flex = "flex-1",
         children,
-        text = "",
+        text = "Loading...",
         loading = false,
         barColor = "black",
-        h = ""
+        h = "",
+        isBlink = false
     }: {
         /** ボタンが押された時の処理 */
         onClick?: MouseEventHandler<HTMLButtonElement>,
@@ -28,8 +29,9 @@ export const ButtonItem = (
         /** ボタンのテキスト */
         text?: string
         loading?: boolean
-        barColor?: "#06C755" | "red" | "white" | "black" | "green" | "blue"
+        barColor?: "#06C755" | "red" | "white" | "black" | "green" | "blue" | "gray"
         h?: "h-10" | "h-16" | "h-18" | "h-20" | "h-24" | "h-32" | ""
+        isBlink?: boolean
     }
 ): JSX.Element => {
     return (
@@ -58,12 +60,19 @@ export const ButtonItem = (
                             fill={barColor}
                         />
                     </svg>
-                    <span>{text || "Loading..."}</span>
+                    <span>{text}</span>
                 </>
             ) : (
                 <>
                     <div>{children}</div>
-                    <div>{text}</div>
+                    <div>{text}
+                        {isBlink &&
+                            <>
+                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
+                                <span className="relative inline-flex rounded-full h-3 w-3 bg-sky-500"></span>
+                            </>
+                        }
+                    </div>
                 </>
             )}
         </button>

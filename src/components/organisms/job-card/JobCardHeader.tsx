@@ -1,5 +1,3 @@
-import { IconHeart } from "@/components/atoms/icons/icons";
-import useLikeJobs from "@/hooks/useLikeJobs";
 import { type Job } from "@/server/api/routers/job";
 import { JobCardLikeButton as LikeButton } from "./JobCardLikeButton";
 import { JobCardTitle } from "./JobCardTitle";
