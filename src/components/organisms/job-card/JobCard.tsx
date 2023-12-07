@@ -8,6 +8,8 @@ import { JobCardTemplate } from "./JobCardTmplate";
 import { JobCardFooter as Footer } from "./JobCardFooter";
 import { BorderArea } from "@/components/molecules/border-area/BorderArea";
 import Link from "next/link";
+import { JobDetailCardComment } from "../job-detail-card/JobDetailCardCommet";
+import { DetailCardCommentInfo } from "../job-detail-card/JobDetailCardCommentInfo";
 
 const IconLocation = (
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
@@ -125,14 +127,31 @@ export const JobCard = ({ data }: { data: Job }) => {
             }} />
 
             <BorderArea title={"女の子ボイス"} >
-                <Link href={`/job/${id}#girls_voice`}>
-                    <p>aaaaa</p>
+                <Link href={`/job/${id}?fcs=girls_voice`} className="flex items-center justify-between">
+                    <DetailCardCommentInfo p={"p-1"} {...{
+                        name: "noname",
+                        shootingDate: "2023年11月",
+                        // avatar: <></>,
+                        // rating: 5,
+                        comment: `丁寧に色々説明してくれたり
+            凄く言い方でした😿✊🏻
+            紹介ありがとうございます(emoji)`,
+                        // title: "ww",
+                    }} />
+                    <div className="flex justify-end">
+                        <button className="text-blue-500">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-7 h-7">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12.75 15l3-3m0 0l-3-3m3 3h-7.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </button>
+                    </div>
                 </Link>
+
             </BorderArea>
 
             <Footer {...{
                 jobId: id
             }} />
-        </JobCardTemplate>
+        </JobCardTemplate >
     )
 }

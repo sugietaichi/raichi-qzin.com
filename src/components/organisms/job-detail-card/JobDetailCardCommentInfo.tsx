@@ -11,26 +11,27 @@ export const DetailCardCommentInfo = ({
         </svg>
     ),
     rating = 5,
-    comment = "未回答"
-}: CommentType
+    comment = "未回答",
+    p = ""
+}: CommentType & {
+    p: "p-1" | "p-2" | "p-3" | ""
+}
 ) => (
-    <div className="py-5 bg-gray-100 flex items-center justify-center">
-        <div className="px-3">
-            <div className="bg-white max-w-xl rounded-2xl px-10 py-3 shadow-lg hover:shadow-2xl transition duration-500">
-                <div className="flex justify-between items-center">
-                    <div className="flex items-center space-x-4 py-4">
+    <div className={`${p} bg-gray-100 flex items-center justify-center `}>
+        <div className={``}>
+            <div className="bg-white max-w-xl rounded-2xl shadow-lg hover:shadow-2xl transition duration-500 ">
+                <div className="flex justify-between items-center bg-pink-100 rounded-t-lg">
+                    <div className="flex items-center space-x-4 py-4 border-b border-gray-300">
                         <div className="">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-10 h-10">
-                                <path strokeLinecap="round" strokeLinejoin="round" d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z" />
-                            </svg>
+                            {avatar}
                         </div>
                         <div>
-                            <div className="text-lg font-semibold">{name}</div>
+                            <div className="text-lg font-semibold">{name}{" "}さん</div>
                             <span className="font-normal text-sm text-gray-500">{shootingDate}{" "}撮影</span>
                         </div>
                     </div>
                 </div>
-                <div className="mt-1">
+                <div className="m-3">
                     <h1 className="text-lg text-gray-700 font-semibold hover:underline cursor-pointer">{title}</h1>
                     <div className="flex mt-1">
                         {Array.from({ length: rating }, (_, index) => (

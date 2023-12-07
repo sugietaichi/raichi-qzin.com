@@ -30,7 +30,11 @@ export const JobDetailCardComment = ({
     return (
         <BorderArea title={text}>
             {exposes?.map((comments, i) => (
-                <DetailCardCommentInfo key={i} {...comments} />
+                <DetailCardCommentInfo
+                    key={i}
+                    {...comments}
+                    p="p-2"
+                />
             ))}
 
             <div
@@ -38,7 +42,11 @@ export const JobDetailCardComment = ({
                             ${showAccordion ? 'max-h-[500px] opacity-100 visible' : 'max-h-0 opacity-0 invisible'}`}
             >
                 {hides?.map((comments, i) => (
-                    <DetailCardCommentInfo key={i} {...comments} />
+                    <DetailCardCommentInfo
+                        key={i}
+                        {...comments}
+                        p="p-2"
+                    />
                 ))}
             </div>
 

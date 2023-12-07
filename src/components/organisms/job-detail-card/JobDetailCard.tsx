@@ -1,5 +1,7 @@
+"use client"
+
 import { type Job } from "@/server/api/routers/job";
-import { type ReactNode } from "react";
+import { useEffect, type ReactNode } from "react";
 import { JobCardHeader } from "../job-card/JobCardHeader";
 import { JobCardTopImage } from "../job-card/JobCardTopImage";
 import { JobDetailCardTemplate } from "./JobDetailCardTemplate";
@@ -14,6 +16,8 @@ import useAffiliatorId from "@/hooks/useAffiliatorId";
 import { JobDetailCardSchedule } from "./JobDetailCardSchedules";
 import { type CommentType, JobDetailCardComment } from "./JobDetailCardCommet";
 import { FAQSection } from "./JobDetailCardFAQ";
+import { useSearchParams } from "next/navigation";
+import { useToggle } from "react-use";
 
 
 const IconLocation = (
@@ -146,6 +150,17 @@ export const JobDetailCard = ({ data }: { data: Job }) => {
     const { job, id } = data
     const { affiliatorId } = useAffiliatorId('a')
     const { submit, isLoading: isLineLoginLoading } = useLineLogin()
+    const searchParams = useSearchParams();
+    const forcus = searchParams.get("fcs")
+
+    useEffect(() => {
+        if (forcus) {
+            const e = document.getElementById(forcus)
+            if (e) {
+                e.scrollIntoView({ behavior: 'smooth' })
+            }
+        }
+    }, [forcus]);
 
     return (
         <JobDetailCardTemplate>
@@ -222,6 +237,7 @@ export const JobDetailCard = ({ data }: { data: Job }) => {
                 title: "よくあるご質問",
                 initOpen: true
             }} />
+
 
             <div id="girls_voice">
                 <JobDetailCardComment
