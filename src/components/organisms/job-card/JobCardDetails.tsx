@@ -15,6 +15,7 @@ export const JobCardDetails = ({
 }) => {
     const exposes = details.get("expose")
     const hides = details.get("hide")
+
     const [showAccordion, changeShowAccordion] = useToggle(initOpen)
 
     return (
@@ -25,7 +26,8 @@ export const JobCardDetails = ({
 
             <div
                 className={`transition-all duration-1000 ease-in-out relative 
-                            ${showAccordion ? 'max-h-[500px] opacity-100 visible' : 'max-h-0 opacity-0 invisible'}`}
+                            ${showAccordion ? 'max-h-[500px] opacity-100 visible' : 'max-h-0 opacity-0 invisible'}`
+                }
             >
                 {hides?.map((detail, i) => (
                     <JobDetailItemInfo key={i} {...detail} />

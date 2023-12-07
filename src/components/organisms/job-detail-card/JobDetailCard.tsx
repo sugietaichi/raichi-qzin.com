@@ -13,6 +13,8 @@ import useLineLogin from "@/hooks/use-line-login/useLineLogin";
 import useAffiliatorId from "@/hooks/useAffiliatorId";
 import { JobDetailCardSchedule } from "./JobDetailCardSchedules";
 import { CommentType, JobDetailCardComment } from "./JobDetailCardCommet";
+import { FAQSection } from "./JobDetailCardFAQ";
+
 
 const IconLocation = (
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
@@ -208,6 +210,16 @@ export const JobDetailCard = ({ data }: { data: Job }) => {
             <JobDetailCardSchedule {...{
                 schedules,
                 text: "仕事内容",
+                initOpen: true
+            }} />
+
+            <FAQSection {...{
+                faqData: [
+                    { question: "Q1. 質問の部分", answer: "解答の部分" },
+                    { question: "Q2. 質問の部分", answer: "解答の部分" },
+                    { question: "Q3. 質問の部分", answer: "解答の部分" }
+                ],
+                title: "よくあるご質問",
                 initOpen: true
             }} />
 
