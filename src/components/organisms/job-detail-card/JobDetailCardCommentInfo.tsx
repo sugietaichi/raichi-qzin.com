@@ -15,7 +15,7 @@ export const DetailCardCommentInfo = ({
 }: CommentType
 ) => (
     <div className="py-5 bg-gray-100 flex items-center justify-center">
-        <div className="px-10">
+        <div className="px-3">
             <div className="bg-white max-w-xl rounded-2xl px-10 py-3 shadow-lg hover:shadow-2xl transition duration-500">
                 <div className="flex justify-between items-center">
                     <div className="flex items-center space-x-4 py-4">
@@ -24,7 +24,10 @@ export const DetailCardCommentInfo = ({
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z" />
                             </svg>
                         </div>
-                        <div className="text-sm font-semibold">{name}<span className="ml-3 font-normal text-sm">{shootingDate}{" "}撮影</span></div>
+                        <div>
+                            <div className="text-lg font-semibold">{name}</div>
+                            <span className="font-normal text-sm text-gray-500">{shootingDate}{" "}撮影</span>
+                        </div>
                     </div>
                 </div>
                 <div className="mt-1">
@@ -37,11 +40,10 @@ export const DetailCardCommentInfo = ({
                         ))}
                     </div>
                     <p className="mt-4 text-md text-gray-600">
-                        はじめてでしたが問題なく終わりました。ありがとうございました。
+                        {comment}
                     </p>
-
                 </div>
             </div>
         </div>
-    </div>
+    </div >
 );

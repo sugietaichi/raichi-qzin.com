@@ -2,12 +2,10 @@
 
 import { Pankuzu } from "@/components/molecules/pankuzu/Pankuzu"
 import { api } from "@/trpc/react"
-import { useToggle } from "react-use"
 import { JobDetailCard } from "@/components/organisms/job-detail-card/JobDetailCard"
 
 const Page = ({ params: { id } }: { params: { id: string } }) => {
-    const { data: data, isLoading } = api.job.getById.useQuery({ id });
-    const [isBackLoading, setIsBackLoading] = useToggle(false)
+    const { data: data } = api.job.getById.useQuery({ id });
 
     return (
         <>

@@ -1,8 +1,5 @@
 import { type Job } from "@/server/api/routers/job";
 import { ReactNode } from "react";
-import { JobCardDetails } from "../job-card/JobCardDetails";
-import { JobCardSchedule } from "../job-card/JobCardSchedule";
-import { JobCardFooter } from "../job-card/JobCardFooter";
 import { JobCardHeader } from "../job-card/JobCardHeader";
 import { JobCardTopImage } from "../job-card/JobCardTopImage";
 import { JobDetailCardTemplate } from "./JobDetailCardTemplate";
@@ -14,9 +11,6 @@ import { ButtonItem } from "@/components/atoms/button/ButtonItem";
 import { IconLine } from "@/components/atoms/icons/icons";
 import useLineLogin from "@/hooks/use-line-login/useLineLogin";
 import useAffiliatorId from "@/hooks/useAffiliatorId";
-import { api } from "@/trpc/react";
-import { useRouter } from "next/router";
-import { useToggle } from "react-use";
 import { JobDetailCardSchedule } from "./JobDetailCardSchedules";
 import { CommentType, JobDetailCardComment } from "./JobDetailCardCommet";
 
@@ -55,7 +49,6 @@ const IconMoney = (
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-6 h-6">
         <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V10.5zm-12 0h.008v.008H6V10.5z" />
     </svg>
-
 )
 
 export type DetailInfo = {
@@ -76,9 +69,9 @@ const details = [
         description: "18歳以上の方(高校生不可)"
     },
     {
-        icon: IconQlock,
-        text: "拘束時間",
-        description: "最大6時間"
+        icon: IconYen,
+        text: "給料",
+        description: "最低8~30万円以上の実績あり"
     },
     {
         icon: IconQlock,
@@ -90,15 +83,9 @@ const details = [
         text: "支払い",
         description: "撮影後現金手渡し"
     },
-    // {
-    //     icon: IconMoney,
-    //     text: "撮影枠",
-    //     description: "基本平日"
-    // },
 ]
 
 const schedules = [
-
     {
         step: 1,
         text: "デートシーン撮影",
@@ -128,41 +115,39 @@ export type ScheduleInfo = {
 
 
 const comments = new Map<"expose" | "hide", CommentType[]>([
-
     ["expose", [
         {
-            name: "aa",
-            shootingDate: "ss",
-            avatar: <></>,
-            rating: 5,
+            name: "noname",
+            shootingDate: "2023年12月",
+            // avatar: <></>,
+            // rating: 5,
             comment: "はじめてでしたが問題なく終わりました。ありがとうございました。",
-            title: "ss",
+            // title: "",
         }
     ]],
 
     ["hide", [
         {
-            name: "ww",
-            shootingDate: "xx",
-            avatar: <>aa</>,
-            rating: 5,
-            comment: "はじめてでしたが問題なく終わりました。ありがとうございました。",
-            title: "ww",
+            name: "noname",
+            shootingDate: "2023年11月",
+            // avatar: <></>,
+            // rating: 5,
+            comment: `丁寧に色々説明してくれたり
+            凄く言い方でした😿✊🏻
+            紹介ありがとうございます(emoji)`,
+            // title: "ww",
         }
     ]]
 ]);
 
 export const JobDetailCard = ({ data }: { data: Job }) => {
     const { job, id } = data
-
     const { affiliatorId } = useAffiliatorId('a')
     const { submit, isLoading: isLineLoginLoading } = useLineLogin()
 
     return (
         <JobDetailCardTemplate>
-            <JobCardHeader {...{
-                data
-            }} />
+            <JobCardHeader {...{ data }} />
 
             <JobCardTopImage {...{
                 src: job.imageUrl,
