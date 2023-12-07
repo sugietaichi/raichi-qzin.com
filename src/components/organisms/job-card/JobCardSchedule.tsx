@@ -1,8 +1,7 @@
-import { type ReactNode } from "react";
 import { useToggle } from "react-use";
 import { BorderArea } from "@/components/molecules/border-area/BorderArea";
 import { JobScheduleInfo } from "./JobScheduleInfo";
-import { ScheduleInfo } from "./JobCard";
+import type { ScheduleInfo } from "./JobCard";
 
 export const JobCardSchedule = ({
     schedule,

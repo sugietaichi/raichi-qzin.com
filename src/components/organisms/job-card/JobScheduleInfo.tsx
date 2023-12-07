@@ -1,4 +1,4 @@
-import { ScheduleInfo } from "./JobCard"
+import type { ScheduleInfo } from "./JobCard"
 
 export const JobScheduleInfo = ({
     text,
