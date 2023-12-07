@@ -6,6 +6,8 @@ import { type ReactNode } from "react";
 import { JobCardSchedule } from "./JobCardSchedule";
 import { JobCardTemplate } from "./JobCardTmplate";
 import { JobCardFooter as Footer } from "./JobCardFooter";
+import { BorderArea } from "@/components/molecules/border-area/BorderArea";
+import Link from "next/link";
 
 const IconLocation = (
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
@@ -121,6 +123,12 @@ export const JobCard = ({ data }: { data: Job }) => {
                 schedule,
                 text: "仕事内容"
             }} />
+
+            <BorderArea title={"女の子ボイス"} >
+                <Link href={`/job/${id}#girls_voice`}>
+                    <p>aaaaa</p>
+                </Link>
+            </BorderArea>
 
             <Footer {...{
                 jobId: id

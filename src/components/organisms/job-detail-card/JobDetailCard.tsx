@@ -1,5 +1,5 @@
 import { type Job } from "@/server/api/routers/job";
-import { ReactNode } from "react";
+import { type ReactNode } from "react";
 import { JobCardHeader } from "../job-card/JobCardHeader";
 import { JobCardTopImage } from "../job-card/JobCardTopImage";
 import { JobDetailCardTemplate } from "./JobDetailCardTemplate";
@@ -12,7 +12,7 @@ import { IconLine } from "@/components/atoms/icons/icons";
 import useLineLogin from "@/hooks/use-line-login/useLineLogin";
 import useAffiliatorId from "@/hooks/useAffiliatorId";
 import { JobDetailCardSchedule } from "./JobDetailCardSchedules";
-import { CommentType, JobDetailCardComment } from "./JobDetailCardCommet";
+import { type CommentType, JobDetailCardComment } from "./JobDetailCardCommet";
 import { FAQSection } from "./JobDetailCardFAQ";
 
 
@@ -223,11 +223,13 @@ export const JobDetailCard = ({ data }: { data: Job }) => {
                 initOpen: true
             }} />
 
-            <JobDetailCardComment
-                text={"女の子ボイス"}
-                {...{
-                    comments
-                }} />
+            <div id="girls_voice">
+                <JobDetailCardComment
+                    text={"女の子ボイス"}
+                    {...{
+                        comments
+                    }} />
+            </div>
 
             <JobDetailCardFooter {...{
                 jobId: id

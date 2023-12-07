@@ -1,5 +1,5 @@
 import { type ReactNode } from "react";
-import { CommentType } from "./JobDetailCardCommet";
+import { type CommentType } from "./JobDetailCardCommet";
 
 export const DetailCardCommentInfo = ({
     name = "noname",

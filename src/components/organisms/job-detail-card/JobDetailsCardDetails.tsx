@@ -1,7 +1,7 @@
 import { BorderArea } from "@/components/molecules/border-area/BorderArea"
 import { useToggle } from "react-use"
 import { JobDetailItemInfo } from "../job-card/JobDetailItemInfo"
-import { DetailInfo } from "./JobDetailCard"
+import { type DetailInfo } from "./JobDetailCard"
 
 export const JobDetailCardDetails = ({
     details,
