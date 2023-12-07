@@ -29,6 +29,7 @@ export const JobDetailCardComment = ({
 
     return (
         <BorderArea title={text}>
+            <div className="pt-3"></div>
             {exposes?.map((comments, i) => (
                 <DetailCardCommentInfo
                     key={i}

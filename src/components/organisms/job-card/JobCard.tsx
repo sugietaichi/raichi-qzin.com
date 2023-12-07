@@ -127,7 +127,7 @@ export const JobCard = ({ data }: { data: Job }) => {
             }} />
 
             <BorderArea title={"女の子ボイス"} >
-                <Link href={`/job/${id}?fcs=girls_voice`} className="flex items-center justify-between">
+                <Link href={`/job/${id}?fcs=girls_voice`} className="mt-3  flex items-center justify-between">
                     <DetailCardCommentInfo p={"p-1"} {...{
                         name: "noname",
                         shootingDate: "2023年11月",
