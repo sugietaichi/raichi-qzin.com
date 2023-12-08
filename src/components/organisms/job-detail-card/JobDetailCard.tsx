@@ -240,23 +240,24 @@ export const JobDetailCard = ({ data }: { data: Job }) => {
 
     useEffect(() => {
         if (!job?.faq) {
-            alert("ないよ")
             return
         }
         setFaqs(job.faq)
-        alert(job.faq[0])
     }, [job]);
 
-
-
-
     useEffect(() => {
-        if (forcus) {
-            const e = document.getElementById(forcus)
-            if (e) {
-                e.scrollIntoView({ behavior: 'smooth' })
+        const interval = setInterval(() => {
+            if (!forcus) {
+                return
             }
-        }
+            const element = document.getElementById(forcus);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+                clearInterval(interval);
+            }
+        }, 100);
+
+        return () => clearInterval(interval);
     }, [forcus]);
 
     return (
