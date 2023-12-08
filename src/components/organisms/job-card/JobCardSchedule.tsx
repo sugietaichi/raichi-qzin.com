@@ -4,16 +4,16 @@ import { JobScheduleInfo } from "./JobScheduleInfo";
 import type { ScheduleInfo } from "./JobCard";
 
 export const JobCardSchedule = ({
-    schedule,
+    schedules,
     text,
     initOpen = false
 }: {
-    schedule: Map<"expose" | "hide", ScheduleInfo[]>
+    schedules: Map<"expose" | "hide", ScheduleInfo[]>
     text: string
     initOpen?: boolean
 }) => {
-    const exposes = schedule.get("expose")
-    const hides = schedule.get("hide")
+    const exposes = schedules.get("expose")
+    const hides = schedules.get("hide")
     const [showAccordion, changeShowAccordion] = useToggle(initOpen)
 
     return (

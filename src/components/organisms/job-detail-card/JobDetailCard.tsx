@@ -14,11 +14,10 @@ import { IconLine } from "@/components/atoms/icons/icons";
 import useLineLogin from "@/hooks/use-line-login/useLineLogin";
 import useAffiliatorId from "@/hooks/useAffiliatorId";
 import { JobDetailCardSchedule } from "./JobDetailCardSchedules";
-import { type CommentType, JobDetailCardComment } from "./JobDetailCardCommet";
 import { FAQSection } from "./JobDetailCardFAQ";
 import { useSearchParams } from "next/navigation";
-import { useToggle } from "react-use";
-
+import { Kuchikomi } from "../job-card/JobCard";
+import { JobDetailCardComment } from "./JobDetailCardCommet";
 
 const IconLocation = (
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
@@ -120,10 +119,10 @@ export type ScheduleInfo = {
 }
 
 
-const comments = new Map<"expose" | "hide", CommentType[]>([
+const comments = new Map<"expose" | "hide", Kuchikomi[]>([
     ["expose", [
         {
-            name: "noname",
+            nickname: "noname",
             shootingDate: "2023年12月",
             // avatar: <></>,
             // rating: 5,
@@ -134,7 +133,7 @@ const comments = new Map<"expose" | "hide", CommentType[]>([
 
     ["hide", [
         {
-            name: "noname",
+            nickname: "noname",
             shootingDate: "2023年11月",
             // avatar: <></>,
             // rating: 5,

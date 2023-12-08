@@ -3,15 +3,8 @@ import { useToggle } from "react-use"
 import { JobDetailItemInfo } from "../job-card/JobDetailItemInfo"
 import { DetailInfo } from "./JobDetailCard"
 import { DetailCardCommentInfo } from "./JobDetailCardCommentInfo"
+import { Kuchikomi } from "../job-card/JobCard"
 
-export type CommentType = {
-    name?: string
-    shootingDate?: string
-    avatar?: React.ReactNode
-    rating?: 0 | 1 | 2 | 3 | 4 | 5
-    comment?: string
-    title?: string
-}
 
 
 export const JobDetailCardComment = ({
@@ -19,7 +12,7 @@ export const JobDetailCardComment = ({
     text,
     initOpen = false
 }: {
-    comments: Map<"expose" | "hide", CommentType[]>
+    comments: Map<"expose" | "hide", Kuchikomi[]>
     text: string
     initOpen?: boolean
 }) => {

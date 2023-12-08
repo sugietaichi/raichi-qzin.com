@@ -6,7 +6,7 @@ export const Tags = ({ tags }: { tags: string[] | undefined }): JSX.Element => {
         <>
             {tags ?
                 (<div className="px-3 py-2 flex flex-wrap">
-                    {tags.map((tag) => <Tag key={tag} text={`#${tag}`} />)}
+                    {tags.map((tag) => <Tag key={tag} text={`${tag}`} />)}
                 </div>)
                 :
                 <></>}

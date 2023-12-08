@@ -8,7 +8,7 @@ export type Job = {
   job: {
     /* 案件見出し */
     title: string;
-    /* サブタイトル */
+    /* サブタイトル(titleよりちょい長めなイメージ、カードで使う) */
     subtitle: string;
     /* 案件イメージ画像 */
     imageUrl: string;
@@ -17,42 +17,49 @@ export type Job = {
 
     /* フォーマット */
     format: string;
+
     /* 仕事条件・内容等 */
     details: {
-      /* 顔出し範囲 */
-      facialExposure: string;
       /* 撮影場所 */
       location: string;
       /* 拘束時間 */
       hours: string;
-      /* スキン(S着・外出し可など) */
-      skin: string;
-      /* 報酬受け渡しのタイミング */
-      paymentTiming: string;
-      /* 撮影内容 */
-      scenes: string[];
-      /* 備考 */
-      notes: string[];
+      /* 支払いについて */
+      payment: string;
       /* ギャラ目安 */
       guarantee: string;
+      /* 応募資格 */
+      require: string;
+      idCard: string;
+      touch: string;
+      karami: string;
     };
-    /* 募集要項 */
-    recruitment: {
-      /* 年齢採用基準 */
-      age: string;
-      /* スペ採用基準 */
-      spe: string;
-      /* 必須項目 */
-      required: string[];
-      /* 歓迎項目 */
-      welcome: string[];
-      /* 備考 */
-      notes: string[];
-    };
+
+    jobStep: {
+      step: number;
+      text: string;
+      hour: number;
+      description: string;
+    }[];
+
     tags?: string[];
+
+    faq: {
+      question: string;
+      answer: string;
+      priority?: number;
+    }[];
+
+    kuchikomi: {
+      nickname?: string;
+      title?: string;
+      shootingDate: string;
+      rating?: number;
+      comment: string;
+      priority?: number;
+    }[];
   };
 };
-
 export const jobRouter = createTRPCRouter({
   hello: publicProcedure
     .input(z.object({ id: z.string() }))
