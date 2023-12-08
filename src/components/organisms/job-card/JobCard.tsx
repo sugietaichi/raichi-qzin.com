@@ -208,7 +208,7 @@ export const JobCard = ({ data }: { data: Job }) => {
     }, [data])
 
     useEffect(() => {
-        if (!job || !job.jobStep) {
+        if (!job?.jobStep) {
             return
         }
         const ask = [...job.jobStep].sort((a, b) => a.step - b.step);
@@ -223,7 +223,7 @@ export const JobCard = ({ data }: { data: Job }) => {
     }, [data]);
 
     useEffect(() => {
-        if (!job || !job.kuchikomi) {
+        if (!job?.kuchikomi) {
             return
         }
         const top = [...job.kuchikomi].find(item => item.priority === 1);

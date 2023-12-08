@@ -1,5 +1,5 @@
 import { type ReactNode } from "react";
-import { Kuchikomi } from "../job-card/JobCard";
+import { type Kuchikomi } from "../job-card/JobCard";
 
 export const DetailCardCommentInfo = ({
     nickname = "noname",

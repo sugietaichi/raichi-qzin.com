@@ -16,7 +16,7 @@ import useAffiliatorId from "@/hooks/useAffiliatorId";
 import { JobDetailCardSchedule } from "./JobDetailCardSchedules";
 import { FAQSection } from "./JobDetailCardFAQ";
 import { useSearchParams } from "next/navigation";
-import { IconHand, IconIdCard, IconInfo, Kuchikomi } from "../job-card/JobCard";
+import { IconHand, IconIdCard, IconInfo, type Kuchikomi } from "../job-card/JobCard";
 import { JobDetailCardComment } from "./JobDetailCardCommet";
 
 const IconLocation = (
@@ -211,20 +211,20 @@ export const JobDetailCard = ({ data }: { data: Job }) => {
                 description: idCard ?? tmpl
             }
         ]))
-    }, [data])
+    }, [job])
 
     useEffect(() => {
-        if (!job || !job.jobStep) {
+        if (!job?.jobStep) {
             return
         }
         const ask = [...job.jobStep].sort((a, b) => a.step - b.step);
         setSchedules(ask)
-    }, [data])
+    }, [job])
 
 
 
     useEffect(() => {
-        if (!job || !job.kuchikomi) {
+        if (!job?.kuchikomi) {
             return
         }
 
@@ -236,7 +236,7 @@ export const JobDetailCard = ({ data }: { data: Job }) => {
             ["expose", top && exposed],
             ["hide", hidden]]
         ));
-    }, [data]);
+    }, [job]);
 
 
     useEffect(() => {

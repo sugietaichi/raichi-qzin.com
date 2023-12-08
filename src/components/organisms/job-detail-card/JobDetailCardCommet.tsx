@@ -3,7 +3,7 @@ import { useToggle } from "react-use"
 import { JobDetailItemInfo } from "../job-card/JobDetailItemInfo"
 import { DetailInfo } from "./JobDetailCard"
 import { DetailCardCommentInfo } from "./JobDetailCardCommentInfo"
-import { Kuchikomi } from "../job-card/JobCard"
+import { type Kuchikomi } from "../job-card/JobCard"
 
 
 
