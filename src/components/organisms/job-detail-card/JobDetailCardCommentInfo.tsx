@@ -9,7 +9,7 @@ export const DetailCardCommentInfo = ({
     comment = "未回答",
     p = ""
 }: Kuchikomi & {
-    p: "p-1" | "p-2" | "p-3" | ""
+    p?: "p-1" | "p-2" | "p-3" | ""
 }
 ) => (
     <div className={`${p} bg-gray-100 flex items-center justify-center `}>

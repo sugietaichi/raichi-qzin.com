@@ -8,16 +8,16 @@ import { Kuchikomi } from "../job-card/JobCard"
 
 
 export const JobDetailCardComment = ({
-    comments,
+    kuchikomi,
     text,
     initOpen = false
 }: {
-    comments: Map<"expose" | "hide", Kuchikomi[]>
+    kuchikomi: Map<"expose" | "hide", Kuchikomi[]>
     text: string
     initOpen?: boolean
 }) => {
-    const exposes = comments.get("expose")
-    const hides = comments.get("hide")
+    const exposes = kuchikomi.get("expose")
+    const hides = kuchikomi.get("hide")
     const [showAccordion, changeShowAccordion] = useToggle(initOpen)
 
     return (

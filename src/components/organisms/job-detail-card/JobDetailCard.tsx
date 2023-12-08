@@ -1,7 +1,7 @@
 "use client"
 
 import { type Job } from "@/server/api/routers/job";
-import { useEffect, type ReactNode } from "react";
+import { useEffect, type ReactNode, useState } from "react";
 import { JobCardHeader } from "../job-card/JobCardHeader";
 import { JobCardTopImage } from "../job-card/JobCardTopImage";
 import { JobDetailCardTemplate } from "./JobDetailCardTemplate";
@@ -16,7 +16,7 @@ import useAffiliatorId from "@/hooks/useAffiliatorId";
 import { JobDetailCardSchedule } from "./JobDetailCardSchedules";
 import { FAQSection } from "./JobDetailCardFAQ";
 import { useSearchParams } from "next/navigation";
-import { Kuchikomi } from "../job-card/JobCard";
+import { IconHand, IconIdCard, IconInfo, Kuchikomi } from "../job-card/JobCard";
 import { JobDetailCardComment } from "./JobDetailCardCommet";
 
 const IconLocation = (
@@ -145,12 +145,99 @@ const comments = new Map<"expose" | "hide", Kuchikomi[]>([
     ]]
 ]);
 
+export type FaqType = {
+    question: string,
+    answer: string
+}
+
 export const JobDetailCard = ({ data }: { data: Job }) => {
     const { job, id } = data
     const { affiliatorId } = useAffiliatorId('a')
     const { submit, isLoading: isLineLoginLoading } = useLineLogin()
     const searchParams = useSearchParams();
     const forcus = searchParams.get("fcs")
+
+    const [details, setDetails] = useState<DetailInfo[]>()
+    const [schedules, setSchedules] = useState<ScheduleInfo[]>()
+    const [kuchikomi, setKuchikomi] = useState<Map<"expose" | "hide", Kuchikomi[]>>()
+    const [faqs, setFaqs] = useState<FaqType[]>()
+
+
+    useEffect(() => {
+        const {
+            require,
+            karami,
+            guarantee,
+            location,
+            hours,
+            touch,
+            idCard,
+        } = job.details
+        const tmpl = "お問い合わせください"
+        setDetails(([
+            {
+                icon: IconCheckDocument,
+                text: "応募資格",
+                description: require ?? tmpl
+            },
+            {
+                icon: IconInfo,
+                text: "絡みの有無",
+                description: karami ?? tmpl
+            },
+            {
+                icon: IconMoney,
+                text: "謝礼目安",
+                description: guarantee ?? tmpl
+            },
+            {
+                icon: IconLocation,
+                text: "撮影場所",
+                description: location ?? tmpl
+            },
+            {
+                icon: IconQlock,
+                text: "拘束時間",
+                description: hours ?? tmpl
+            },
+            {
+                icon: IconHand,
+                text: "接触の有無",
+                description: touch ?? tmpl
+            },
+            {
+                icon: IconIdCard,
+                text: "公的身分証",
+                description: idCard ?? tmpl
+            }
+        ]))
+    }, [data])
+
+    useEffect(() => {
+        if (!job || !job.jobStep) {
+            return
+        }
+        const ask = [...job.jobStep].sort((a, b) => a.step - b.step);
+        setSchedules(ask)
+    }, [data])
+
+
+
+    useEffect(() => {
+        if (!job || !job.kuchikomi) {
+            return
+        }
+
+        const top = [[...job.kuchikomi].find(item => item.priority === 1),]
+        const exposed = job.kuchikomi.slice(0, 1);
+        const hidden = job.kuchikomi.slice(1);
+
+        setKuchikomi(new Map<"expose" | "hide", Kuchikomi[]>([
+            ["expose", top && exposed],
+            ["hide", hidden]]
+        ));
+    }, [data]);
+
 
     useEffect(() => {
         if (forcus) {
@@ -215,36 +302,39 @@ export const JobDetailCard = ({ data }: { data: Job }) => {
                 </div>
             </div>
 
-            <JobDetailCardDetails {...{
-                details,
-                text: "案件詳細",
-                initOpen: true
-            }} />
+            {details &&
+                <JobDetailCardDetails {...{
+                    details,
+                    text: "案件詳細",
+                    initOpen: true
+                }} />
+            }
 
-            <JobDetailCardSchedule {...{
-                schedules,
-                text: "仕事内容",
-                initOpen: true
-            }} />
+            {schedules &&
+                <JobDetailCardSchedule {...{
+                    schedules,
+                    text: "仕事内容",
+                    initOpen: true
+                }} />
+            }
 
-            <FAQSection {...{
-                faqData: [
-                    { question: "Q1. 質問の部分", answer: "解答の部分" },
-                    { question: "Q2. 質問の部分", answer: "解答の部分" },
-                    { question: "Q3. 質問の部分", answer: "解答の部分" }
-                ],
-                title: "よくあるご質問",
-                initOpen: true
-            }} />
+            {faqs &&
+                <FAQSection {...{
+                    faqData: faqs,
+                    title: "よくあるご質問",
+                    initOpen: true
+                }} />
+            }
 
-
-            <div id="girls_voice">
-                <JobDetailCardComment
-                    text={"女の子ボイス"}
-                    {...{
-                        comments
-                    }} />
-            </div>
+            {kuchikomi &&
+                <div id="girls_voice">
+                    <JobDetailCardComment
+                        text="女の子ボイス"
+                        {...{
+                            kuchikomi
+                        }} />
+                </div>
+            }
 
             <JobDetailCardFooter {...{
                 jobId: id
