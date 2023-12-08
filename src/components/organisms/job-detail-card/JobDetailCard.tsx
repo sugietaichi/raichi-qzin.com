@@ -172,7 +172,7 @@ export const JobDetailCard = ({ data }: { data: Job }) => {
             hours,
             touch,
             idCard,
-        } = job.details
+        } = job?.details
         const tmpl = "お問い合わせください"
         setDetails(([
             {
