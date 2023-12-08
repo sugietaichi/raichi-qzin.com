@@ -238,6 +238,17 @@ export const JobDetailCard = ({ data }: { data: Job }) => {
         ));
     }, [job]);
 
+    useEffect(() => {
+        if (!job?.faq) {
+            alert("ないよ")
+            return
+        }
+        setFaqs(job.faq)
+        alert(job.faq[0])
+    }, [job]);
+
+
+
 
     useEffect(() => {
         if (forcus) {
@@ -325,17 +336,15 @@ export const JobDetailCard = ({ data }: { data: Job }) => {
                     initOpen: true
                 }} />
             }
-
-            {kuchikomi &&
-                <div id="girls_voice">
+            <div id="girls_voice">
+                {kuchikomi &&
                     <JobDetailCardComment
                         text="女の子ボイス"
                         {...{
                             kuchikomi
                         }} />
-                </div>
-            }
-
+                }
+            </div>
             <JobDetailCardFooter {...{
                 jobId: id
             }} />
