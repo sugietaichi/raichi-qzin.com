@@ -1,17 +1,16 @@
 "use client"
 
 import Loading from "@/components/atoms/loading/Loading";
-import Card from "@/components/molecules/card/Card";
 import { Pankuzu } from "@/components/molecules/pankuzu/Pankuzu";
 import useLikeJobs from "@/hooks/useLikeJobs";
 import Link from "next/link";
-
+import { JobCardById } from "./FetchWitchJobCard";
 
 function Page() {
     const { jobIds } = useLikeJobs();
+
     return (
         <>
-
             <div className="flex justify-between items-center">
                 <div>
                     <Pankuzu paths={[{ text: "お気に入り", href: "/fav" },]} />
@@ -36,12 +35,10 @@ function Page() {
                 </div>
             </div>
 
-
             <ul className='space-y-3'>
                 {jobIds ? jobIds.map((jobId: string) => (
                     <div key={jobId} className="mb-10">
-                        <Card {...{ jobId }} >
-                        </Card>
+                        <JobCardById {...{ id: jobId }} />
                     </div>
 
                 )) : <Loading />}

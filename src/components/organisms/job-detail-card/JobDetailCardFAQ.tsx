@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { useToggle } from "react-use";
 import { BorderArea } from "@/components/molecules/border-area/BorderArea";
 
@@ -44,7 +43,6 @@ const FAQItem: React.FC<FAQItemProps> = ({ question, answer }) => {
 export const FAQSection = ({
     faqData,
     title,
-    initOpen = false
 }: {
     faqData: FAQItemProps[];
     title: string;

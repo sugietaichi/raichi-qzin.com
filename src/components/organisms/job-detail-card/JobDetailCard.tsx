@@ -245,6 +245,7 @@ export const JobDetailCard = ({ data }: { data: Job }) => {
         setFaqs(job.faq)
     }, [job]);
 
+    //強引だけどこれしかなさそう
     useEffect(() => {
         const interval = setInterval(() => {
             if (!forcus) {

@@ -2,10 +2,9 @@
 
 import { UserType } from "@/components/_internal/emus"
 import { ButtonItem } from "@/components/atoms/button/ButtonItem"
-import { IconLine, IconDocText, IconBack } from "@/components/atoms/icons/icons"
+import { IconLine, IconBack } from "@/components/atoms/icons/icons"
 import useLineLogin from "@/hooks/use-line-login/useLineLogin"
 import useAffiliatorId from "@/hooks/useAffiliatorId"
-import { api } from "@/trpc/react"
 import { useRouter } from "next/navigation"
 import { useToggle } from "react-use"
 

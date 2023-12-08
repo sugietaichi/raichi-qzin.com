@@ -205,7 +205,7 @@ export const JobCard = ({ data }: { data: Job }) => {
                 },
             ]]
         ]))
-    }, [data])
+    }, [job])
 
     useEffect(() => {
         if (!job?.jobStep) {
@@ -220,7 +220,7 @@ export const JobCard = ({ data }: { data: Job }) => {
             ["expose", exposedSchedules],
             ["hide", hiddenSchedules]
         ]));
-    }, [data]);
+    }, [job]);
 
     useEffect(() => {
         if (!job?.kuchikomi) {
@@ -228,7 +228,7 @@ export const JobCard = ({ data }: { data: Job }) => {
         }
         const top = [...job.kuchikomi].find(item => item.priority === 1);
         setKuchikomi(top ? top : job.kuchikomi[0])
-    }, [data]);
+    }, [job]);
 
     return (
         <JobCardTemplate>

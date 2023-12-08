@@ -1,4 +1,3 @@
-import { type ReactNode } from "react";
 import { type Kuchikomi } from "../job-card/JobCard";
 
 export const DetailCardCommentInfo = ({

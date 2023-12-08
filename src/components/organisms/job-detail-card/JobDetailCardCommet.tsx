@@ -1,7 +1,5 @@
 import { BorderArea } from "@/components/molecules/border-area/BorderArea"
 import { useToggle } from "react-use"
-import { JobDetailItemInfo } from "../job-card/JobDetailItemInfo"
-import { DetailInfo } from "./JobDetailCard"
 import { DetailCardCommentInfo } from "./JobDetailCardCommentInfo"
 import { type Kuchikomi } from "../job-card/JobCard"
 
