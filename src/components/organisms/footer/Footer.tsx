@@ -7,7 +7,6 @@ import Loading from '@/components/atoms/loading/Loading'
 import useLineLogin from '@/hooks/use-line-login/useLineLogin'
 import useJobId from '@/hooks/useJobId'
 
-
 export const Footer = () => {
     const { submit, isLoading } = useLineLogin()
     const { jobId } = useJobId()
@@ -24,7 +23,10 @@ export const Footer = () => {
                 />
             </Link>
 
-            <aside className='items-center grid-flow-col text-center cursor-pointer'>
+            <aside
+                id="aff"
+                className='items-center grid-flow-col text-center cursor-pointer'
+            >
                 {isLoading ? <Loading /> : (
                     <div className='underline pt-3'
                         onClick={() => {
@@ -37,6 +39,8 @@ export const Footer = () => {
                     </div>
                 )}
             </aside >
+
+
         </footer >
     )
 }

@@ -5,7 +5,8 @@ import { ButtonItem } from "@/components/atoms/button/ButtonItem"
 import { IconLine, IconBack } from "@/components/atoms/icons/icons"
 import useLineLogin from "@/hooks/use-line-login/useLineLogin"
 import useAffiliatorId from "@/hooks/useAffiliatorId"
-import { useRouter } from "next/navigation"
+import { useRouter, useSearchParams } from "next/navigation"
+import { useEffect } from "react"
 import { useToggle } from "react-use"
 
 export const JobDetailCardFooter = ({
@@ -16,8 +17,8 @@ export const JobDetailCardFooter = ({
     const { affiliatorId } = useAffiliatorId('a')
     const { submit, isLoading: isLineLoginLoading } = useLineLogin()
     const router = useRouter()
-
     const [isBackLoading, setIsBackLoading] = useToggle(false)
+
     return (
         <div className="w-full">
             <div className="flex rounded-md justify-center shadow-sm my-5 mx-3" role="group">

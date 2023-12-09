@@ -11,7 +11,7 @@ export const DetailCardCommentInfo = ({
     p?: "p-1" | "p-2" | "p-3" | ""
 }
 ) => (
-    <div className={`${p} bg-gray-100 flex items-center justify-center `}>
+    <div className={`${p} bg-gray-100 flex items-center justify-center w-full`}>
         <div className={``}>
             <div className="bg-white max-w-xl rounded-2xl shadow-lg hover:shadow-2xl transition duration-500 ">
                 <div className="flex justify-between items-center bg-pink-100 rounded-t-lg">

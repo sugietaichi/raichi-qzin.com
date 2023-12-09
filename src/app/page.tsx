@@ -7,9 +7,10 @@ import { type Job } from "@/server/api/routers/job";
 import { api } from "@/trpc/react";
 import { SearchArea } from "@/components/molecules/search-area/searchArea";
 import { JobCard } from "@/components/organisms/job-card/JobCard";
+import { useEffect } from "react";
 
 function Home() {
-  const { data } = api.job.getAll.useQuery();
+  const { data, isLoading } = api.job.getAll.useQuery();
 
   return (
     <div className="">
