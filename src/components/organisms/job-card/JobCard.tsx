@@ -256,7 +256,7 @@ export const JobCard = ({ data }: { data: Job }) => {
                 text: "仕事内容"
             }} />
 
-            {kuchikomi &&
+            {/* {kuchikomi &&
                 <BorderArea title={"女の子ボイス"} >
                     <Link href={`/job/${id}?fcs=girls_voice`} className="mt-3  flex items-center justify-between">
                         <DetailCardCommentInfo
@@ -273,7 +273,7 @@ export const JobCard = ({ data }: { data: Job }) => {
                         </div>
                     </Link>
                 </BorderArea>
-            }
+            } */}
 
             <Footer {...{
                 jobId: id

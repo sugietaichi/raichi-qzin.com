@@ -221,8 +221,6 @@ export const JobDetailCard = ({ data }: { data: Job }) => {
         setSchedules(ask)
     }, [job])
 
-
-
     useEffect(() => {
         if (!job?.kuchikomi) {
             return
@@ -338,7 +336,8 @@ export const JobDetailCard = ({ data }: { data: Job }) => {
                     initOpen: true
                 }} />
             }
-            <div id="girls_voice">
+
+            {/* <div id="girls_voice">
                 {kuchikomi &&
                     <JobDetailCardComment
                         text="女の子ボイス"
@@ -346,7 +345,8 @@ export const JobDetailCard = ({ data }: { data: Job }) => {
                             kuchikomi
                         }} />
                 }
-            </div>
+            </div> */}
+
             <JobDetailCardFooter {...{
                 jobId: id
             }} />
