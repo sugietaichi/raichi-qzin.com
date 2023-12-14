@@ -5,8 +5,7 @@ import { ButtonItem } from "@/components/atoms/button/ButtonItem"
 import { IconLine, IconBack } from "@/components/atoms/icons/icons"
 import useLineLogin from "@/hooks/use-line-login/useLineLogin"
 import useAffiliatorId from "@/hooks/useAffiliatorId"
-import { useRouter, useSearchParams } from "next/navigation"
-import { useEffect } from "react"
+import { useRouter } from "next/navigation"
 import { useToggle } from "react-use"
 
 export const JobDetailCardFooter = ({

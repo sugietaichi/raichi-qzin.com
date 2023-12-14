@@ -16,8 +16,8 @@ export const Header = (props: Props) => {
     const [isOpen, changeOpen] = useToggle(false)
 
     return (
-        <header className='flex flex-col px-5 mt-5 w-full max-w-xl text-center'>
-            <div className='flex justify-between items-center w-full'>
+        <header className='flex flex-col px-5 w-full max-w-xl text-center bg-pink-400'>
+            <div className='flex justify-between items-center'>
                 <Logo />
 
                 <nav

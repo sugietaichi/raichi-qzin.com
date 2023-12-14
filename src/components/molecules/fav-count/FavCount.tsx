@@ -17,12 +17,12 @@ export const FavCount = () => {
     return (
         <button
             type="button"
-            className="relative inline-flex items-center text-sm font-medium text-center text-white bg-white rounded-lg px-2 mr-2"
+            className="relative inline-flex items-center text-sm font-medium text-center text-white bg-white rounded-lg px-2 mr-3 mt-2 mb-1"
             onClick={() => {
                 router.push("/fav")
             }}
         >
-            <div className="flex flex-col items-center pt-1">
+            <div className="flex flex-col items-center">
                 <IconHeart {...{
                     stroke: "white",
                     fill: "red",

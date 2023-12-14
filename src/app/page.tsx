@@ -19,11 +19,10 @@ function Home() {
           <Pankuzu paths={[{ text: "案件一覧", href: "/" }]} />
         </div>
       </div>
-      <div className='bg-gray-400 w-full text-white text-center mb-2'>
-        高額モデル求人情報サイト
-      </div>
+
       {/* <Image className="w-full pb-2 " src="/bana.png" alt={""} width={200} height={200} /> */}
       <ResultModal />
+      <SearchArea />
       <div className="flex flex-col items-end">
         <div className="text-right text-sm">
           検索結果
@@ -42,9 +41,8 @@ function Home() {
           </p>
         }
       </div>
-      <SearchArea />
       {/* <Image className="w-full py-1" src="/top_banner.png" alt={""} width={200} height={200} /> */}
-      <ul className='space-y-3'>
+      <ul className=''>
         {data ? data.map((job: Job) => (
           <div key={job.id} className="mb-10">
             {/* <Card {...{ jobId: job.id }} /> */}

@@ -29,9 +29,7 @@ export default function RootLayout({
           <LikeJobProvider>
             <Header menuList={[...menu]} />
             <main className='w-full max-w-xl mt-2'>
-              <div className='w-full px-2 py-3 bg-gray-200 shadow-md rounded-lg'>
-                {children}
-              </div>
+              {children}
             </main>
             <Footer />
           </LikeJobProvider>

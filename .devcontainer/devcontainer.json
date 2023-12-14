@@ -1,5 +1,5 @@
 {
-    "name": "v0.2-frontend-raichi-qzin",
+    "name": "kaiwai.com",
     "image": "mcr.microsoft.com/devcontainers/typescript-node:1-20-bullseye",
   
     "features": {

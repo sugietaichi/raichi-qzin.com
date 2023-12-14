@@ -17,7 +17,6 @@ import { JobDetailCardSchedule } from "./JobDetailCardSchedules";
 import { FAQSection } from "./JobDetailCardFAQ";
 import { useSearchParams } from "next/navigation";
 import { IconHand, IconIdCard, IconInfo, type Kuchikomi } from "../job-card/JobCard";
-import { JobDetailCardComment } from "./JobDetailCardCommet";
 
 const IconLocation = (
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
